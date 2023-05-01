@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+
+"""flask application file"""
+
 from flask import Flask
 from api.v1.views import app_views
 from models import storage

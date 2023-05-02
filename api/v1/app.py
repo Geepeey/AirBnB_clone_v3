@@ -14,8 +14,8 @@ app.register_blueprint(app_views)
 def teardown_app_context(exception):
     """Closes session after each request"""
     storage.close()
-    
-    
+
+
 @app.errorhandler(404)
 def not_found_error(error):
     """Handles 404 errors"""

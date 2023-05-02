@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 """ Handles all restful API actions for Places"""
 
-from flask import abort, jsonify, request
 from api.v1.views import app_views
-from models import storage, City, Place, User
+from flask import request, jsonify, abort
+from models import storage
+from models.city import City
+from models.user import User
+from models.place import Place
 
 
 @app_views.route('/cities/<city_id>/places', methods=['GET'],

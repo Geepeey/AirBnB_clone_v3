@@ -1,22 +1,21 @@
 #!/usr/bin/python3
+"""Index file for flask app"""
 
-"""index file for flask app"""
-
-from api.v1.views import app_views
-from flask import Flask
-from flask import jsonify
 from models import storage
+from flask import Flask
+from api.v1.views import app_views
+from flask import jsonify
 
 
 @app_views.route('/status', strict_slashes=False)
-def api_status():
-    """return api status"""
+def status():
+    """return JSON status"""
     return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats', strict_slashes=False)
 def count():
-    """returns the number of each object"""
+    """Returns the number of each object"""
     return jsonify({"amenities": storage.count("Amenity"),
                     "cities": storage.count("City"),
                     "places": storage.count("Place"),

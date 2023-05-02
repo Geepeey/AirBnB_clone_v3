@@ -84,9 +84,7 @@ def update_place(place_id):
 
 @app_views.route('/places_search', methods=['POST'], strict_slashes=False)
 def search_places():
-    """
-    Retrieves all Place objects depending of the JSON in the body of the request.
-    """
+    """Retrieves all Place of the JSON in the body of the request"""
     if not request.is_json:
         return jsonify({"error": "Not a JSON"}), 400
 

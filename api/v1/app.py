@@ -14,6 +14,12 @@ app.register_blueprint(app_views)
 def teardown_app_context(exception):
     """Closes session after each request"""
     storage.close()
+    
+    
+@app.errorhandler(404)
+def handle_404(exception):
+    """Handles 404 errors"""
+    return jsonify({"error": "Not found"}), 404
 
 
 if __name__ == "__main__":
